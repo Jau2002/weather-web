@@ -1,0 +1,38 @@
+{
+	"private": true,
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"format": "prettier --config \".prettierrc.yaml\" -u -l --no-editorconfig -w \"**/**/*.{js,jsx}\"",
+		"style": "stylelint --color --config \".stylelintrc.yaml\" --di --fix -f github \"**/style/**/*.less\"",
+		"lint": "eslint -c \".eslintrc.yaml\" --fix \"**/**/*.{js,jsx}\" --color"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Jau2002/weather-web.git"
+	},
+	"author": "Jaume Suarez Molina <santjaume02@gmail.com> (https://co.linkedin.com/in/jaumesuarez)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Jau2002/weather-web/issues"
+	},
+	"homepage": "https://github.com/Jau2002/weather-web#readme",
+	"engines": {
+		"node": "16.17.0",
+		"yarn": ">=1.22.0"
+	},
+	"devDependencies": {
+		"eslint": "8.23.1",
+		"eslint-config-airbnb": "19.0.4",
+		"eslint-config-prettier": "8.5.0",
+		"eslint-plugin-import": "2.26.0",
+		"eslint-plugin-jsx-a11y": "6.6.1",
+		"eslint-plugin-react": "7.31.8",
+		"eslint-plugin-react-hooks": "4.6.0",
+		"postcss-less": "6.0.0",
+		"prettier": "2.7.1",
+		"stylelint": "14.11.0",
+		"stylelint-config-prettier": "9.0.3",
+		"stylelint-config-standard": "28.0.0"
+	}
+}

@@ -1,0 +1,82 @@
+name: Deployment pipeline
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
+jobs:
+  setup:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Lint commit messages
+        uses: wagoid/commitlint-github-action@v5
+      - name: Setup yarn
+        uses: DerYeger/yarn-setup-action@master
+        with:
+          node-version: lts/gallium
+          cache: 'yarn'
+          cache-dependency-path: '/yarn.lock'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --immutable
+
+  format:
+    needs: [setup]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup yarn
+        uses: DerYeger/yarn-setup-action@master
+        with:
+          node-version: lts/gallium
+          cache: 'yarn'
+          cache-dependency-path: '/yarn.lock'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --immutable
+      - name: Perf format
+        run: yarn run format
+
+  style:
+    needs: [setup]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup yarn
+        uses: DerYeger/yarn-setup-action@master
+        with:
+          node-version: lts/gallium
+          cache: 'yarn'
+          cache-dependency-path: '/yarn.lock'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --immutable
+      - name: Check Style
+        run: yarn run style
+
+  lint:
+    needs: [setup]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup yarn
+        uses: DerYeger/yarn-setup-action@master
+        with:
+          node-version: lts/gallium
+          cache: 'yarn'
+          cache-dependency-path: '/yarn.lock'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --immutable
+      - name: Lint Perse
+        run: yarn run lint
