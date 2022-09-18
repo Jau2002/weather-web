@@ -5,15 +5,7 @@ function webpackConfig() {
 	const rulesJS = {
 		test: /\.(jsx)$/,
 		exclude: /node_modules/,
-		use: {
-			loader: 'babel-loader',
-			options: {
-				presets: [
-					'@babel/preset-env',
-					['@babel/preset-react', { runtime: 'automatic' }],
-				],
-			},
-		},
+		use: { loader: 'babel-loader' },
 	};
 
 	const rulesCSS = {
@@ -34,7 +26,9 @@ function webpackConfig() {
 
 	const html5 = {
 		template: 'src/main.html',
+
 		// favicon: 'src/assets/favicon.png',
+
 		minify: {
 			collapseWhitespace: true,
 			removeComments: true,

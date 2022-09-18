@@ -1,8 +1,4 @@
 extends: [stylelint-config-standard, stylelint-config-prettier]
-processors: [postcss-less]
-overrides:
-  - files:
-      - '**/style/**/*.less'
-  - customSyntax: postcss-less
-ignoreFiles: ['node_modules/', 'dist/']
+customSyntax: postcss-less
 allRules: []
+ignoreFiles: ['node_modules/', 'dist/', 'coverage/']

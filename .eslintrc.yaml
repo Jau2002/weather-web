@@ -1,6 +1,7 @@
 env:
   browser: true
   es2022: true
+  jest: true
 extends:
   - plugin:react/recommended
   - airbnb
@@ -47,9 +48,12 @@ rules:
     - single
     - avoidEscape: true
       allowTemplateLiterals: false
-  import/no-unresolved: webpack
+  import/no-unresolved:
+    - 2
+    - ignore: ['\\.img$']
   react/prop-types: 0
+  react/react-in-jsx-scope: 0
   react/jsx-filename-extension:
     - 2
     - extensions: ['.js', '.jsx']
-ignorePatterns: ['node_modules/', 'dist/']
+ignorePatterns: ['node_modules/', 'dist/', 'coverage/']

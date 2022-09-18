@@ -1,9 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
+import './styles.css';
 
-/*
-					 _ 	 _
+/* eslint-disable */
+/* 	 _
 				 /u@) (@\
 	  nn		   Y
 	  'Y 	_____H____
@@ -14,7 +15,7 @@ import App from './App';
 		/ /A \ 	/	 A  \
 	 L______J L_____J
 
-*/
+/* eslint-enable */
 
 const root = createRoot(document.getElementById('root'));
 root.render(

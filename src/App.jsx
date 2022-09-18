@@ -1,5 +1,9 @@
 function App() {
-	return <h1>Boiler play</h1>;
+	return (
+		<main>
+			<h1>Boiler play</h1>
+		</main>
+	);
 }
 
 export default App;
