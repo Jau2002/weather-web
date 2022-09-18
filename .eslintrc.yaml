@@ -12,7 +12,9 @@ parserOptions:
 plugins:
   - react
 rules:
-  indent: 2
+  indent:
+    - 2
+    - tab
   curly:
     - 2
     - all
@@ -45,6 +47,7 @@ rules:
     - single
     - avoidEscape: true
       allowTemplateLiterals: false
+  import/no-unresolved: webpack
   react/prop-types: 0
   react/jsx-filename-extension:
     - 2

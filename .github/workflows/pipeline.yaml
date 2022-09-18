@@ -80,3 +80,45 @@ jobs:
         run: yarn install --frozen-lockfile --immutable
       - name: Lint Perse
         run: yarn run lint
+
+  build:
+    needs: [format, style, lint]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup yarn
+        uses: DerYeger/yarn-setup-action@master
+        with:
+          node-version: lts/gallium
+          cache: 'yarn'
+          cache-dependency-path: '/yarn.lock'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --immutable
+      - name: Builder
+        if: ${{ github.event_name == 'push' }}
+        run: yarn run build
+      - name: Redundant builds
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: '/dist'
+
+  deploy:
+    needs: [build]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Deployment to github-pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: gh-pages
+          build_dir: '/dist'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
