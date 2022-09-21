@@ -9,6 +9,10 @@ jobs:
   setup:
     runs-on: ubuntu-22.04
     steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Lint commit messages
         uses: wagoid/commitlint-github-action@v5
       - name: Cancel Previous Redundant Builds

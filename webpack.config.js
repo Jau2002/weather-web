@@ -26,9 +26,7 @@ function webpackConfig() {
 
 	const html5 = {
 		template: 'src/main.html',
-
-		// favicon: 'src/assets/favicon.png',
-
+		favicon: 'src/assets/favicon.png',
 		minify: {
 			collapseWhitespace: true,
 			removeComments: true,

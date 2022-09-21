@@ -37,7 +37,7 @@ rules:
       ignoreUrls: true
   no-confusing-arrow:
     - 2
-    - allowParens: false
+    - allowParens: true
   no-mixed-operators: 2
   no-tabs:
     - 2
