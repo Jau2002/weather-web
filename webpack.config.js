@@ -3,7 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 function webpackConfig() {
 	const rulesJS = {
-		test: /\.(jsx)$/,
+		test: /\.(js|jsx)$/,
 		exclude: /node_modules/,
 		use: { loader: 'babel-loader' },
 	};

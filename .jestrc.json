@@ -1,6 +1,12 @@
 {
 	"verbose": true,
+	"collectCoverage": true,
 	"testEnvironment": "jsdom",
 	"reporters": ["default", "github-actions"],
-	"collectCoverage": true
+	"collectCoverageFrom": ["src/**/*.{js,jsx}"],
+	"setupFilesAfterEnv": ["@testing-library/jest-dom/extend-expect"],
+	"moduleNameMapper": {
+		"\\.(css|less)$": "identity-obj-proxy",
+		"\\.(jpg|png)$": "jest-static-stubs"
+	}
 }
