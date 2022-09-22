@@ -16,7 +16,7 @@ function webpackConfig() {
 
 	const rulesIMG = {
 		type: 'asset',
-		test: /\.(png|svg|gif)$/,
+		test: /\.(webp|png|svg|gif)$/,
 		exclude: /node_modules/,
 	};
 

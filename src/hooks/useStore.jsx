@@ -8,7 +8,11 @@ function useStore() {
 		useRequest(city, setCities);
 	};
 
-	return { cities, onSearch };
+	const onRemove = (id) => {
+		setCities((prevCities) => prevCities.filter((c) => c.id !== id));
+	};
+
+	return { cities, onSearch, onRemove };
 }
 
 export default useStore;

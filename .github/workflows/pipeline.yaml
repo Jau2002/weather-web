@@ -113,27 +113,26 @@ jobs:
           cache-dependency-path: '/yarn.lock'
       - name: Install dependencies
         run: yarn install --frozen-lockfile --immutable
-      - name: testing
-        run: yarn run test
       - name: Redundant builds
         uses: actions/upload-artifact@v3
         with:
           name: dist
           path: dist
+      - name: Testing
+        run: yarn run test
 
   deploy:
-    needs: [build, test]
+    needs: [build]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Deployment to github-pages
-        if: success()
-        uses: crazy-max/ghaction-github-pages@v3
-        with:
-          target_branch: gh-pages
-          build_dir: dist
+      - name: Deploy with gh-pages
+        if: ${{ github.event_name == 'push' }}
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -8,7 +8,8 @@
 		"lint": "eslint -c \".eslintrc.yaml\" --fix \"**/**/*.{js,jsx}\" --color",
 		"test": "jest --config \".jestrc.json\"",
 		"start": "webpack serve --mode development -c \"webpack.config.js\" --color",
-		"build": "rimraf dist & webpack --mode production -c \"webpack.config.js\""
+		"build": "rimraf dist & webpack --mode production -c \"webpack.config.js\"",
+		"deploy": "gh-pages -d dist"
 	},
 	"repository": {
 		"type": "git",
@@ -23,6 +24,9 @@
 	"engines": {
 		"node": ">=16.17.0",
 		"yarn": ">=1.22.0"
+	},
+	"volta": {
+		"node": ">=16.17.0"
 	},
 	"dependencies": {
 		"dotenv": "16.0.2",
@@ -48,6 +52,7 @@
 		"eslint-plugin-jsx-a11y": "6.6.1",
 		"eslint-plugin-react": "7.31.8",
 		"eslint-plugin-react-hooks": "4.6.0",
+		"gh-pages": "4.0.0",
 		"html-webpack-plugin": "5.5.0",
 		"identity-obj-proxy": "3.0.0",
 		"jest": "29.0.3",

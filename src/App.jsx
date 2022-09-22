@@ -1,14 +1,14 @@
 import Card from './components/Card';
-import SearchBar from './components/SearchBar';
-import Xer from './components/Xer';
+import Loader from './components/Loader';
+import Nav from './components/Nav';
 import useStore from './hooks/useStore';
 
 function App() {
-	const { cities, onSearch } = useStore();
+	const { cities, onSearch, onRemove } = useStore();
 
 	return (
 		<main>
-			<SearchBar onSearch={onSearch} />
+			<Nav onSearch={onSearch} />
 			<section>
 				{cities.length ? (
 					cities.map((c) => (
@@ -23,10 +23,11 @@ function App() {
 							pressureAtmosphere={c.pressureAtmosphere}
 							humidity={c.humidity}
 							windSpeed={c.windSpeed}
+							onRemove={() => onRemove(c.id)}
 						/>
 					))
 				) : (
-					<Xer />
+					<Loader />
 				)}
 			</section>
 		</main>

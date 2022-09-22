@@ -2,7 +2,7 @@ import dump from '../assets/dump.png';
 import pressure from '../assets/pressure.png';
 import windSpeed from '../assets/wind.png';
 
-function Card({ ...props }) {
+function Card({ onRemove, ...props }) {
 	return (
 		<article>
 			<div>
@@ -10,6 +10,7 @@ function Card({ ...props }) {
 				<input
 					type='button'
 					value='✘'
+					onClick={onRemove}
 				/>
 			</div>
 			<div>
