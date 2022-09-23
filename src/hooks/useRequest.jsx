@@ -2,7 +2,7 @@ async function useRequest(city, setCities) {
 	const API_KEY = process.env.REACT_APP_API_KEY;
 
 	const resolve = await fetch(
-		`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+		`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
 	);
 
 	const response = await resolve.json();
