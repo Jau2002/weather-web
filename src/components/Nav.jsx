@@ -8,19 +8,31 @@ function Nav({ onSearch }) {
 		<nav>
 			<h1>Weather Web</h1>
 			<div>
-				<a href='https://github.com/Jau2002/weather-web'>
+				<a
+					href='https://github.com/Jau2002/weather-web'
+					target='_blank'
+					rel='noreferrer'
+				>
 					<img
 						src={github}
 						alt='GitHub'
 					/>
 				</a>
-				<a href='https://www.linkedin.com/in/jaumesuarez/'>
+				<a
+					href='https://www.linkedin.com/in/jaumesuarez'
+					target='_blank'
+					rel='noreferrer'
+				>
 					<img
 						src={linkedIn}
 						alt='linkedIn'
 					/>
 				</a>
-				<a href='https://twitter.com/JaumeSurezMoli1'>
+				<a
+					href='https://twitter.com/JaumeSurezMoli1'
+					target='_blank'
+					rel='noreferrer'
+				>
 					<img
 						src={twitter}
 						alt='Twitter'

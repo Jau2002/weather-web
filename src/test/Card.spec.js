@@ -10,10 +10,12 @@ describe('<Card />', () => {
 		imageMeteorology: '01n',
 		stateRecognized: 'Barcelona',
 	};
-	let mockHandler;
 
-	beforeEach(() => {
-		mockHandler = jest.fn();
+	const mockHandler = jest.fn(() =>
+		Promise.resolve({ json: () => Promise.resolve(mockCity) })
+	);
+
+	beforeEach(() =>
 		render(
 			<Card
 				countryAbbreviation={mockCity.countryAbbreviation}
@@ -22,58 +24,62 @@ describe('<Card />', () => {
 				description={mockCity.description}
 				onRemove={mockHandler}
 			/>
-		);
-	});
+		)
+	);
 
 	afterEach(() => jest.clearAllMocks);
 
-	it('clicking the button calls event handler once', () => {
+	it('Should clicking the button calls event handler once', () => {
 		const button = screen.getByRole('button', { name: '✘' });
+
 		fireEvent.click(button);
 		expect(mockHandler).toHaveBeenCalledTimes(1);
 	});
 
 	describe('Immovable query', () => {
-		it('Input value', () => {
+		it('Should have a input value', () => {
 			const input = screen.getByText(/✘/);
 			expect(input).toBeInTheDocument();
 		});
 
-		it('Split temperature', () => {
+		it('Should have a split temperature', () => {
 			const span = screen.getByText('/');
 			expect(span).toBeInTheDocument();
 		});
 
-		it('Alt pressure atmosphere', () => {
+		it('Should contain img atmosphere', () => {
 			const img = screen.getByAltText(/Pressure Atmosphere/i);
 			expect(img).toBeInTheDocument();
 		});
 
-		it('Alt humidity', () => {
+		it('Should Contain img humidity', () => {
 			const img = screen.getByAltText(/Humidity/i);
 			expect(img).toBeInTheDocument();
 		});
 
-		it('Alt wind speed', () => {
+		it('Should contain img wind speed', () => {
 			const img = screen.getByAltText(/Wind Speed/i);
 			expect(img).toBeInTheDocument();
 		});
 	});
 
-	describe('Data cities', () => {
-		it('Country abbreviation', async () => {
-			const span = await screen.findByText(/ES/);
+	describe('Data fetch cities', () => {
+		it('Should have a Country abbreviation', async () => {
+			const span = await screen.findByText(mockCity.countryAbbreviation);
 			expect(span).toBeInTheDocument();
 		});
 
-		it('Name city', async () => {
-			const h2 = await screen.findByText(/Barcelona/);
+		it('Should display name city', async () => {
+			const h2 = await screen.findByText(mockCity.stateRecognized);
 			expect(h2).toBeInTheDocument();
 		});
 
-		it('description meteorology', async () => {
-			const alt = await screen.findByAltText(/clear sky/);
-			expect(alt).toBeInTheDocument();
+		it('Should correctly render your display image', async () => {
+			const alt = await screen.findByAltText(mockCity.description);
+			expect(alt).toHaveAttribute(
+				'src',
+				'https://openweathermap.org/img/wn/01n@2x.png'
+			);
 		});
 	});
 });

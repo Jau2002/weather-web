@@ -48,6 +48,7 @@ rules:
     - single
     - avoidEscape: true
       allowTemplateLiterals: false
+  no-restricted-syntax: 0
   import/no-unresolved:
     - 2
     - ignore: ['\\.img$']

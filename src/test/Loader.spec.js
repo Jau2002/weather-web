@@ -7,26 +7,24 @@ describe('<Loader />', () => {
 		render(<Loader />);
 	});
 
-	afterEach(() => jest.clearAllMocks);
-
-	it('Description preloader', () => {
+	it('It should show preloader', () => {
 		const img = screen.getByAltText(/preloader/i);
 		expect(img).toBeInTheDocument();
 	});
 
-	it('Tip one search', () => {
+	it('Should tip to improve one search', () => {
 		const li = screen.getByText(
 			/Make sure that all words are spelled correctly/i
 		);
 		expect(li).toBeInTheDocument();
 	});
 
-	it('Tip two search', () => {
+	it('Should tip to improve two search', () => {
 		const li = screen.getByText(/no location matches your search/i);
 		expect(li).toBeInTheDocument();
 	});
 
-	it('Title recommendation', () => {
+	it('Should to improve Title recommendation', () => {
 		const ul = screen.getByText(/Suggestions/i);
 		expect(ul).toBeInTheDocument();
 	});
