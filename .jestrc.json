@@ -7,6 +7,6 @@
 	"setupFilesAfterEnv": ["@testing-library/jest-dom/extend-expect"],
 	"moduleNameMapper": {
 		"\\.(css|less)$": "identity-obj-proxy",
-		"\\.(webp|png|svg|gif)$": "jest-static-stubs"
+		"\\.(web?p|png|svg|gif)$": "jest-static-stubs"
 	}
 }

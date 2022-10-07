@@ -4,12 +4,12 @@
 	"type": "module",
 	"scripts": {
 		"format": "prettier --config \".prettierrc.yaml\" -u -l --no-editorconfig -w \"**/**/**.{js,jsx}\" --ignore-path \".gitignore\"",
-		"style": "stylelint --color --config \".stylelintrc.yaml\" --di --fix -f github \"**/styles/**/*.less\"",
+		"style": "stylelint --color --config \".stylelintrc.yaml\" --di --fix \"**/src/less/**/*.less\" -f github",
 		"lint": "eslint -c \".eslintrc.yaml\" --fix \"**/**/*.{js,jsx}\" --color",
 		"test": "jest --config \".jestrc.json\"",
 		"start": "webpack serve --mode development -c \"webpack.config.js\" --color",
 		"build": "rimraf dist & webpack --mode production -c \"webpack.config.js\"",
-		"deploy": "gh-pages -d dist"
+		"deploy": "gh-pages -d \"dist\""
 	},
 	"repository": {
 		"type": "git",

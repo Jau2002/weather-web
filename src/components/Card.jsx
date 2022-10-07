@@ -1,6 +1,6 @@
-import dump from '../assets/dump.png';
-import pressure from '../assets/pressure.png';
-import windSpeed from '../assets/wind.png';
+import dump from '../assets/images/dump.png';
+import pressure from '../assets/images/pressure.png';
+import windSpeed from '../assets/images/wind.png';
 
 function Card({ onRemove, ...props }) {
 	return (

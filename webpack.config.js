@@ -16,7 +16,7 @@ function webpackConfig() {
 
 	const rulesIMG = {
 		type: 'asset',
-		test: /\.(webp|png|svg|gif)$/,
+		test: /\.(web?p|png|svg|gif)$/,
 		exclude: /node_modules/,
 	};
 
@@ -26,7 +26,7 @@ function webpackConfig() {
 
 	const html5 = {
 		template: 'src/main.html',
-		favicon: 'src/assets/favicon.png',
+		favicon: 'src/assets/public/favicon.png',
 		minify: {
 			collapseWhitespace: true,
 			removeComments: true,

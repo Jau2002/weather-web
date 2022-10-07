@@ -1,0 +1,28 @@
+.nav {
+	position: fixed;
+	background: url('/src/assets/public/background.webp') no-repeat center scroll;
+	background-size: cover;
+	width: 100%;
+	.flex();
+
+	&__div {
+		display: inline-flex;
+	}
+
+	&__h1 {
+		color: @font-title;
+		font: 900 1.2em @family;
+		padding: 1em 0;
+	}
+
+	&__img {
+		z-index: 1;
+		opacity: 0.5;
+		padding: 0.5em;
+	}
+
+	&__img:hover {
+		opacity: 1;
+		.relative(0.5rem, 0.5rem);
+	}
+}

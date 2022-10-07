@@ -1,13 +1,13 @@
-import github from '../assets/icons8-github.svg';
-import linkedIn from '../assets/icons8-linkedIn.svg';
-import twitter from '../assets/icons8-twitter.svg';
+import github from '../assets/images/icons8-github.svg';
+import linkedIn from '../assets/images/icons8-linkedIn.svg';
+import twitter from '../assets/images/icons8-twitter.svg';
+import '../styles.css';
 import SearchBar from './SearchBar';
 
 function Nav({ onSearch }) {
 	return (
-		<nav>
-			<h1>Weather Web</h1>
-			<div>
+		<nav className='nav'>
+			<div className='nav__div'>
 				<a
 					href='https://github.com/Jau2002/weather-web'
 					target='_blank'
@@ -16,6 +16,7 @@ function Nav({ onSearch }) {
 					<img
 						src={github}
 						alt='GitHub'
+						className='nav__img'
 					/>
 				</a>
 				<a
@@ -26,6 +27,7 @@ function Nav({ onSearch }) {
 					<img
 						src={linkedIn}
 						alt='linkedIn'
+						className='nav__img'
 					/>
 				</a>
 				<a
@@ -36,9 +38,11 @@ function Nav({ onSearch }) {
 					<img
 						src={twitter}
 						alt='Twitter'
+						className='nav__img'
 					/>
 				</a>
 			</div>
+			<h1 className='nav__h1'>Weather Web</h1>
 			<SearchBar onSearch={onSearch} />
 		</nav>
 	);

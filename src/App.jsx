@@ -2,6 +2,7 @@ import Card from './components/Card';
 import Loader from './components/Loader';
 import Nav from './components/Nav';
 import useStore from './hooks/useStore';
+import './styles.css';
 
 function App() {
 	const { cities, onSearch, onRemove } = useStore();

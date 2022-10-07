@@ -1,0 +1,51 @@
+.form {
+	display: inline-flex;
+
+	&__input {
+		color: @font-input;
+		font: 1em @family;
+		background: @bg-input;
+		text-transform: capitalize;
+		outline: @border;
+		border-radius: 0.5em;
+		padding: 0.3em;
+		margin: 1em 0.5em;
+	}
+
+	&__input:focus {
+		padding: 0.5em;
+		transition: padding 0.4s;
+		border: 1px solid @border;
+		box-shadow: 1px 1px @border;
+	}
+
+	&__input::placeholder {
+		color: @font-placeholder;
+		font: italic 1em @family;
+	}
+
+	&__button {
+		font: 700 1em @family;
+		background-color: @bg-input;
+		padding: 0.5em;
+		border: 2px solid @border;
+		border-radius: 0.5em;
+		margin: 1em 0.5em;
+		cursor: pointer;
+	}
+
+	&__button:hover {
+		color: @color-hover;
+		background: @bg-hover;
+		border: 2px solid @bg-input;
+	}
+
+	&__button--disabled {
+		font: 1em @family;
+		color: @font-disable;
+		background: @bg-disable;
+		padding: 0.5em;
+		border-radius: 0.5em;
+		margin: 1em 0.5em;
+	}
+}

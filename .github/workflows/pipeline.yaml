@@ -19,13 +19,7 @@ jobs:
       - name: Lint commit messages
         uses: wagoid/commitlint-github-action@v5
 
-      - name: Cancel Previous Redundant Builds
-        uses: styfle/cancel-workflow-action@0.10.0
-        with:
-          access_token: ${{ github.token }}
-
   format:
-    needs: [setup]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code repository
@@ -47,7 +41,7 @@ jobs:
         run: yarn run format
 
   style:
-    needs: [format]
+    needs: [format, setup]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code repository
@@ -69,7 +63,7 @@ jobs:
         run: yarn run style
 
   lint:
-    needs: [format]
+    needs: [format, setup]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code repository
@@ -90,8 +84,30 @@ jobs:
       - name: Lint Perse
         run: yarn run lint
 
-  build:
+  test:
     needs: [style, lint]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup yarn
+        uses: DerYeger/yarn-setup-action@master
+        with:
+          node-version: 'lts/gallium'
+          cache: 'yarn'
+          cache-dependency-path: '/yarn.lock'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --immutable
+
+      - name: Testing
+        run: yarn run test
+
+  deploy:
+    needs: [test]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code repository
@@ -112,65 +128,6 @@ jobs:
       - name: Builder
         if: ${{ github.event_name == 'push' }}
         run: yarn run build
-
-      - name: Redundant builds
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: dist
-
-  test:
-    needs: [build]
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout code repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Setup yarn
-        uses: DerYeger/yarn-setup-action@master
-        with:
-          node-version: 'lts/gallium'
-          cache: 'yarn'
-          cache-dependency-path: '/yarn.lock'
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile --immutable
-
-      - name: Redundant builds
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: dist
-
-      - name: Testing
-        run: yarn run test
-
-  deploy:
-    needs: [build]
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout code repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Setup yarn
-        uses: DerYeger/yarn-setup-action@master
-        with:
-          node-version: 'lts/gallium'
-          cache: 'yarn'
-          cache-dependency-path: '/yarn.lock'
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile --immutable
-
-      - name: Redundant builds
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: dist
 
       - name: Deploy with gh-pages
         if: ${{ github.event_name == 'push' }}

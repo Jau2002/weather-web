@@ -1,21 +1,20 @@
 @charset "UTF-8";
 
 :root {
-	--color-primary: #181818;
-	--color-secondary: #ececec;
+	--primary-color: #393939;
+	--secondary-color: #ececec;
 	--typography-primary: helvetica, arial, sans-serif;
-	--typography-secondary: verdana;
 }
 @media (prefers-color-scheme: dark) {
 	:root {
-		--color-primary: #ececec;
-		--color-secondary: #181818;
+		--primary-color: #ececec;
+		--secondary-color: #393939;
 	}
 }
 @media (prefers-contrast: high) {
 	:root {
-		--color-primary: black;
-		--color-secondary: white;
+		--primary-color: #000;
+		--secondary-color: #fff;
 	}
 }
 @media (prefers-reduced-motion: reduce) {
@@ -41,6 +40,15 @@ figure {
 	max-width: 100%;
 	width: 100%;
 	display: block;
+	object-fit: cover;
+	object-position: center center;
+}
+
+a {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+	font-size: inherit;
 }
 
 li {
@@ -73,10 +81,6 @@ em {
 	color: inherit;
 }
 
-a {
-	display: block;
-}
-
 p a {
 	display: inline;
 }
@@ -90,8 +94,8 @@ q::after {
 }
 
 ::selection {
-	background-color: var(--color-primary);
-	color: var(--color-secondary);
+	background-color: var(--primary-color);
+	color: var(--secondary-color);
 }
 
 form,
@@ -106,6 +110,7 @@ label {
 	background-color: transparent;
 	display: block;
 	color: inherit;
+	appearance: none;
 }
 
 table,
@@ -118,13 +123,18 @@ td {
 svg {
 	width: 100%;
 	display: block;
+	fill: currentcolor;
 }
 
 body {
 	min-height: 100vh;
 	font-size: 100%;
 	font-family: var(--typography-primary);
-	color: var(--color-primary);
-	background-color: var(--color-secondary);
-	line-height: 1.5rem;
+	color: var(--primary-color);
+	background-color: var(--secondary-color);
+	line-height: 1.5em;
+	hyphens: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-smooth: always;
 }
