@@ -128,6 +128,8 @@ jobs:
       - name: Builder
         if: ${{ github.event_name == 'push' }}
         run: yarn run build
+        env:
+          REACT_APP_API_KEY: ${{secrets.REACT_APP_API_KEY}}
 
       - name: Deploy with gh-pages
         if: ${{ github.event_name == 'push' }}

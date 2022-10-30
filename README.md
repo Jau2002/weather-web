@@ -43,7 +43,7 @@ You can call it from within a package.json a **script** to initialize the applic
 
 ## Manual
 
-> Visit site [Weather web](https://jau2002.github.io/weather-web)
+> Visit site [Weather web](https://jau2002.github.io/weather-web){:target='\_blank'}
 
 ---
 
