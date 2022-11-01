@@ -10,9 +10,9 @@ function App() {
 	return (
 		<main>
 			<Nav onSearch={onSearch} />
-			<section>
-				{cities.length ? (
-					cities.map((c) => (
+			{cities.length ? (
+				<section className='section'>
+					{cities.map((c) => (
 						<Card
 							key={c.id}
 							countryAbbreviation={c.countryAbbreviation}
@@ -26,11 +26,11 @@ function App() {
 							windSpeed={c.windSpeed}
 							onRemove={() => onRemove(c.id)}
 						/>
-					))
-				) : (
-					<Loader />
-				)}
-			</section>
+					))}
+				</section>
+			) : (
+				<Loader />
+			)}
 		</main>
 	);
 }

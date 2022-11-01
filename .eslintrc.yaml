@@ -31,10 +31,7 @@ rules:
       allowObjectEnd: true
       allowArrayStart: true
       allowArrayEnd: true
-  max-len:
-    - 2
-    - code: 80
-      ignoreUrls: true
+  max-len: 0
   no-confusing-arrow:
     - 2
     - allowParens: true
