@@ -43,11 +43,25 @@ You can call it from within a package.json a **script** to initialize the applic
 
 ## Manual
 
-> Visit site [Weather web](https://jau2002.github.io/weather-web){:target='\_blank'}
+![First glance](/src/assets/docs/sugestions-page.png)
+
+Location search tips page in case you made a mistake while searching.
+
+![Search bar](/src/assets/docs/search-bar.png)
+
+All you have to do is search for the city of preference.
+
+![cities](/src/assets/docs/cities.png)
+
+> Visit site [Weather web](https://jau2002.github.io/weather-web)
 
 ---
 
 ## Contributing
+
+The main goal of this project was to learn to use react in its new versions, in addition to the implementation of solid principles and componentization of react custom hooks. At the same time integration of good practices and load performances.
+
+Integration builders, linter and testing integration y ci/cd. handling of git and conventional commits. Last but not least, use of Less preprocessor and OOCSS architecture with BEM methodology.
 
 ---
 

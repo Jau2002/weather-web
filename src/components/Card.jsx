@@ -5,7 +5,7 @@ import '../styles.css';
 
 function Card({ onRemove, ...props }) {
 	return (
-		<article className='article'>
+		<section className='section'>
 			<div className='div-top'>
 				<span className='div-top__span'>{props.countryAbbreviation}</span>
 				<input
@@ -54,7 +54,7 @@ function Card({ onRemove, ...props }) {
 					<h3 className='div-bot__h3'>{props.windSpeed} kts</h3>
 				</div>
 			</div>
-		</article>
+		</section>
 	);
 }
 

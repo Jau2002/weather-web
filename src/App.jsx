@@ -11,7 +11,7 @@ function App() {
 		<main>
 			<Nav onSearch={onSearch} />
 			{cities.length ? (
-				<section className='section'>
+				<article className='article'>
 					{cities.map((c) => (
 						<Card
 							key={c.id}
@@ -27,7 +27,7 @@ function App() {
 							onRemove={() => onRemove(c.id)}
 						/>
 					))}
-				</section>
+				</article>
 			) : (
 				<Loader />
 			)}
