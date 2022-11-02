@@ -1,5 +1,4 @@
 /* external fonts */
-
 @family: Merriweather, serif;
 
 @font-face {
@@ -40,11 +39,10 @@
 @font-li: @black;
 @font-input: @white;
 @font-normal: @black;
-@font-placeholder: @ivory;
+@font-placeholder: @gray-86;
 @font-disable: @gray-86;
-@border: @white;
 @bg-disable: @davys-grey;
-@bg-hover: @white;
+@bg-hover: @gray-86;
 @bg-input: @dark-charcoal;
 @bg-nav: @brillux;
 @bg-delete: @orange;
@@ -58,7 +56,17 @@
 @gray-86: #dbdbdb;
 @davys-grey: #555;
 @dark-charcoal: #333;
-@ivory: #c19f82;
 @brillux: #242936;
 @orange: #dd5035;
 @matador-red: #fb1f1e;
+
+/* animations */
+@keyframes card {
+	0% {
+		left: -30em;
+	}
+
+	100% {
+		left: 0;
+	}
+}

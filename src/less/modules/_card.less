@@ -1,7 +1,9 @@
 .article {
-	color: @font-normal;
 	border-radius: 2em;
 	backdrop-filter: brightness(70%) grayscale(50%);
+	color: @font-normal;
+	position: relative;
+	animation: 1.5s 1 forwards card;
 }
 
 .div-top {
@@ -15,11 +17,10 @@
 
 	&__input {
 		cursor: pointer;
-		color: @color-input;
-		background: @bg-delete;
 		font: 400 1em @family;
 		padding: 0 0.8em;
 		border-radius: 0.3em;
+		.bg-color(@color-input, @bg-delete);
 
 		&:hover {
 			background: @bg-hover-delete;
@@ -28,9 +29,7 @@
 }
 
 .div-mid {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	.flex-no-wrap(center);
 
 	&__h2 {
 		font: 900 italic 2.5em @family;
@@ -59,13 +58,13 @@
 }
 
 .div-adc {
-	display: flex;
-	justify-content: space-evenly;
 	padding: 1em 0;
+	.flex();
 }
 
 .div-bot {
 	display: inline-block;
+	text-align: center;
 	padding-bottom: 1em;
 
 	&__img {

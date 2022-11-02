@@ -10,9 +10,10 @@
 	justify-content: space-evenly;
 }
 
-.flex-no-wrap {
+.flex-no-wrap (@align-items: normal) {
 	display: flex;
 	flex-direction: column;
+	align-items: @align-items;
 }
 
 .background-image {
@@ -20,4 +21,16 @@
 	background-size: cover;
 	width: 100%;
 	height: 100%;
+}
+
+.grid-template {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	grid-template-rows: 450px;
+	grid-gap: 2em;
+}
+
+.bg-color (@color, @background) {
+	color: @color;
+	background: @background;
 }
