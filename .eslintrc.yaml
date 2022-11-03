@@ -32,9 +32,7 @@ rules:
       allowArrayStart: true
       allowArrayEnd: true
   max-len: 0
-  no-confusing-arrow:
-    - 2
-    - allowParens: true
+  no-confusing-arrow: 0
   no-mixed-operators: 2
   no-tabs:
     - 2

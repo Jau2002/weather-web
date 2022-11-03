@@ -1,5 +1,6 @@
 async function useRequest(city, setCities) {
-	const API_KEY = process.env.REACT_APP_API_KEY;
+	const API_KEY =
+		process.env.REACT_APP_API_KEY || 'dcb12ced1dcdf8b0d4d016192c4c5673';
 
 	const resolve = await fetch(
 		`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
@@ -22,9 +23,9 @@ async function useRequest(city, setCities) {
 		};
 
 		setCities((prevCities) =>
-			(prevCities.some((c) => c.id === data.id)
+			prevCities.some((c) => c.id === data.id)
 				? [...prevCities]
-				: [data, ...prevCities])
+				: [data, ...prevCities]
 		);
 	}
 }
